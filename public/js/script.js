@@ -1,0 +1,1 @@
+alert("THIS HOME PAGE YOU KNOW!");
