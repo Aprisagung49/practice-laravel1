@@ -8,7 +8,7 @@
         </h2>
     </a>
         <div class="text-base text-gray-500">
-            <a href="#">{{$post['author']}} </a> | 21 April 2025
+            <a href="#">{{$post['author']}} </a> | {{$post->created_at->diffForHumans()}}
         </div>
         <p class="my-4 font-light">{{ Str::limit($post['body'],190)}}     {{-- Str::limit() digunakan untuk membatasi Jumlah Karakter --}}
         </p>

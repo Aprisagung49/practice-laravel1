@@ -19,9 +19,8 @@ Route::get('/home', function () {
 Route::get('/posts', function () {
     return view('posts', ['title' => 'Blog Page', 'posts' => Post::all()]);
 });
-route::get('/posts/{slug}', function ($slug){
+route::get('/posts/{post:slug}', function (Post $post){ //Post disini adalah nama model kita
     // dd($id); //dd digunakan untuk debug atau var_dump 
-        $post = Post::find($slug);
         return view ('post',['title' => 'Single Post', 'post'=>$post]);
 }); 
 Route::get('/contact', function () {
