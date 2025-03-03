@@ -28,8 +28,14 @@ class Post{
         // return Arr::first(static::all(), function ($post) use ($slug) {
         //     return $post['slug'] == $slug;
         // });
-        return Arr::first(static::all(), fn ($post) => $post['slug'] == $slug); //arrow function dibuat ringkas
+         // return Arr::first(static::all(), fn ($post) => $post['slug'] == $slug); arrow function dibuat ringkas
+     $post = Arr::first(static::all(), fn ($post) => $post['slug'] == $slug); //arrow function dibuat ringkas
      
+     if(!$post)
+     {
+        abort(404);
+     }
+     return $post;
     }
 }
 ?>

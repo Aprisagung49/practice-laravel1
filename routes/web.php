@@ -22,7 +22,6 @@ Route::get('/posts', function () {
 route::get('/posts/{slug}', function ($slug){
     // dd($id); //dd digunakan untuk debug atau var_dump 
         $post = Post::find($slug);
-
         return view ('post',['title' => 'Single Post', 'post'=>$post]);
 }); 
 Route::get('/contact', function () {
