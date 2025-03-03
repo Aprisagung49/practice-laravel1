@@ -6,7 +6,7 @@ use App\Models\Post;
 
 // Route::get('/', function () {
 //     return view('welcome');
-// });
+// }); 
 
 
 
