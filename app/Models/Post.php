@@ -6,11 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
+
+
 class Post extends Model
 {
 
     use HasFactory;
     protected $fillable = ['title', 'author', 'slug', 'body'];
+
+
+
+    protected $with = ['author', 'category']; //tambahkan ini di model untuk membuat eager loading dgn cepat
+
 
 // function ini digunakan untuk agar author dapat mengambil atau relasi dengan 
 // tabel user jadi author atau disini table post dapat mengambil
