@@ -13,7 +13,7 @@ use App\Models\Post;
 Route::get('/about', function () {
     return view('about', ['nama' => 'Apris Agung48'], ['title' => 'About Page']);
 });
-Route::get('/home', function () {
+Route::get('/', function () {
     return view('home', ['title' => 'HomePage' ]);
 });
 Route::get('/posts', function () {
