@@ -19,11 +19,25 @@ Route::get('/', function () {
     return view('home', ['title' => 'HomePage' ]);
 });
 Route::get('/posts', function () {
+
+
+//query untuk membuat fitur pencarian 
+    // $posts = Post::latest();
+
+    // if(request('search')){
+    //     $posts->where('title', 'like', '%' .request('search') . '%');
+    // }
+
+    // dump(request('search'));    //cara cek apakah data sudah dapat ditangkap kita menggunakan method GET
     //sebelum menggunakan eagel Loading N+1
-    return view('posts', ['title' => 'Blog Page', 'posts' => Post::all()]); 
+    // return view('posts', ['title' => 'Blog Page', 'posts' => Post::all()]); 
     //sesudah menggunakan Eagle Loading
     // $Posts = Post::with(['author','category'])->latest()->get();
-    // return view('posts', ['title' => 'Blog Page', 'posts' => $Posts]);
+    //sebelum query disimpan di models
+    // return view('posts', ['title' => 'Blog Page', 'posts' => $posts]);   //tambahkan get() diakhir
+    //sesudah query disimpan di models
+    return view('posts', ['title' => 'Blog Page', 'posts' => Post::filter(request(['search', 'category', 'author']))->latest()->get()]);   //tambahkan get() diakhir
+
 });
 route::get('/posts/{post:slug}', function (Post $post){ //Post disini adalah nama model kita
     // dd($id); //dd digunakan untuk debug atau var_dump 
