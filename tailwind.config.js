@@ -5,6 +5,7 @@ export default {
         "./resources/views/**/*.blade.php",
         "./resources/js/**/*.vue",
         "./node_modules/flowbite/**/*.js",
+        "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
     ],
     theme: {
         extend: {

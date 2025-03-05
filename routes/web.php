@@ -36,7 +36,7 @@ Route::get('/posts', function () {
     //sebelum query disimpan di models
     // return view('posts', ['title' => 'Blog Page', 'posts' => $posts]);   //tambahkan get() diakhir
     //sesudah query disimpan di models
-    return view('posts', ['title' => 'Blog Page', 'posts' => Post::filter(request(['search', 'category', 'author']))->latest()->get()]);   //tambahkan get() diakhir
+    return view('posts', ['title' => 'Blog Page', 'posts' => Post::filter(request(['search', 'category', 'author']))->latest()->paginate(9)->withQueryString()]);   //tambahkan get() diakhir untuk mengambil data sedangkan untuk pagination ganti jadi paginate ada juga simplePaginate
 
 });
 route::get('/posts/{post:slug}', function (Post $post){ //Post disini adalah nama model kita

@@ -32,9 +32,9 @@
             </div>
         </div>
 
-
-    <h3 class="text-2xl text-gray-900 font-bold">Blog Spot Today</h3>
-    <div class="py-4 px-4 mx-auto max-w-screen-xl lg:py-4 lg:px-0">
+        {{ $posts->links() }}
+    {{-- <h3 class="text-2xl text-gray-900 font-bold">Blog Spot Today</h3> --}}
+    <div class="my-4 py-4 px-4 mx-auto max-w-screen-xl lg:py-4 lg:px-0">
         <div class="grid gap-8 md:grid-cols-3 lg:grid-cols-3">
     @forelse ($posts as $post )
     {{-- <article class ="py-8 max-w-screen-md border-b border-gray-300">
@@ -92,4 +92,5 @@
     @endforelse
 </div>  
 </div>
+{{ $posts->links() }}
 </x-layout>
